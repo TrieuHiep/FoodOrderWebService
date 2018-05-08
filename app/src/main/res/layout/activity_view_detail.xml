@@ -56,16 +56,20 @@
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:layout_marginTop="20dp"
-        android:background="@color/button"
+        android:background="@drawable/border_button"
         android:text="ADD TO MEAL"
         android:textColor="@color/buttontext" />
 
-    <Button
-        android:id="@+id/btn_share"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="8dp"
-        android:background="#4286f4"
-        android:text="Share with Facebook" />
+
+        <Button
+            android:layout_margin="14dp"
+            android:textColor="@android:color/white"
+            android:id="@+id/btn_share"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/border_bt_share"
+            android:text="Share with Facebook" />
+
+
 </LinearLayout>

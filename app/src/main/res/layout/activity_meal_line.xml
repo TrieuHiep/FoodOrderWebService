@@ -51,7 +51,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="right"
+                android:gravity="center"
                 android:text="x 1"
                 android:layout_gravity="center_vertical"
                 android:id="@+id/numOfQuantity"/>
@@ -74,6 +74,7 @@
             android:paddingTop="20dp">
 
             <Button
+                android:background="@drawable/border_button"
                 android:id="@+id/deleteBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -13,7 +13,11 @@ import android.widget.TextView;
 
 import com.foodorder.tatsuya.foodorder.R;
 import com.foodorder.tatsuya.foodorder.model.foodpkg.Food;
+import com.foodorder.tatsuya.foodorder.model.personpkg.Account;
 import com.foodorder.tatsuya.foodorder.task.ImageRenderOnline;
+import com.foodorder.tatsuya.foodorder.task.RemoveItemTask;
+import com.foodorder.tatsuya.foodorder.utils.EndPoint;
+import com.foodorder.tatsuya.foodorder.utils.UserSession;
 
 import java.util.List;
 
@@ -62,7 +66,7 @@ public class MealAdapter extends ArrayAdapter<Food> {
         });
 
         subQuantity.setOnClickListener(view -> {
-            int newQuantity = Math.max(0,
+            int newQuantity = Math.max(1,
                     Integer.parseInt(numOfQuantity.getText().toString().trim()) - 1);
             System.out.println("decrease quantity...");
             numOfQuantity.setText(newQuantity + "");
@@ -70,7 +74,10 @@ public class MealAdapter extends ArrayAdapter<Food> {
         });
 
         btnRemove.setOnClickListener(view -> {
-
+            Account loggedAccount = UserSession.getInstance().getLoggedAccount();
+            new RemoveItemTask(context,new EndPoint<>(),loggedAccount,position).execute();
+            foodList.remove(position);
+            MealAdapter.this.notifyDataSetChanged(); //Updates adapter to new changes
         });
         return convertView;
     }
